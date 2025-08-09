@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Sidebar.module.css";
 
-const Sidebar = () => {
-  const [activeLink, setActiveLink] = useState("Products");
+
+const Sidebar = ({ activeLink, setActiveLink }) => {
 
   const navItems = [
     { name: "Dashboard", icon: "fa-solid fa-chart-pie" },
@@ -12,6 +12,7 @@ const Sidebar = () => {
     { name: "Analytics", icon: "fa-solid fa-chart-line" },
     { name: "Settings", icon: "fa-solid fa-gear" },
   ];
+
 
   return (
     <aside className={styles.sidebar}>
@@ -27,10 +28,15 @@ const Sidebar = () => {
             <li className={styles.navItem} key={item.name}>
               <a
                 href="#"
-                className={`${styles.navLink} ${
-                  activeLink === item.name ? styles.active : ""
-                }`}
-                onClick={() => setActiveLink(item.name)}
+                className={
+                  activeLink === item.name
+                    ? `${styles.navLink} ${styles.active}`
+                    : styles.navLink
+                }
+                onClick={e => {
+                  e.preventDefault();
+                  setActiveLink(item.name);
+                }}
               >
                 <i className={item.icon}></i>
                 <span>{item.name}</span>
