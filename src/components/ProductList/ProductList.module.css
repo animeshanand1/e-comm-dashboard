@@ -1,0 +1,10 @@
+.productListContainer {
+  padding: 2rem;
+  flex-grow: 1;
+}
+.productListCard {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  overflow: hidden;
+}
