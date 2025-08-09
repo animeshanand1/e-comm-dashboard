@@ -1,0 +1,66 @@
+.header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.headerTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.searchBar {
+  position: relative;
+}
+.searchBar i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+.searchInput {
+  padding: 0.6rem 1rem 0.6rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  min-width: 250px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.searchInput:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-secondary);
+}
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.notificationBell {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.notificationBell:hover {
+  color: var(--text-primary);
+}
+.profileAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-secondary);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+}
