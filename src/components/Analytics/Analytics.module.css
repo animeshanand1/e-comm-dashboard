@@ -1,0 +1,89 @@
+.analyticsContainer {
+  padding: 2rem;
+  flex-grow: 1;
+  background-color: var(--bg-primary);
+  overflow-y: auto;
+}
+.analyticsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.dateRangePicker {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.analyticsGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+.chartCard {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  grid-column: span 12;
+}
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.chartPlaceholder {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dataTable th,
+.dataTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+.dataTable th {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.metricChange {
+  font-weight: 600;
+}
+.positive {
+  color: var(--status-in-stock);
+}
+.negative {
+  color: var(--status-out-of-stock);
+}
+
+@media (min-width: 768px) {
+  .chartCard {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 1280px) {
+  .salesChart {
+    grid-column: span 8;
+  }
+  .trafficChart {
+    grid-column: span 4;
+  }
+  .topProductsChart {
+    grid-column: span 6;
+  }
+  .metricsTable {
+    grid-column: span 6;
+  }
+}
