@@ -1,0 +1,97 @@
+.productTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.productTable th,
+.productTable td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+.productTable th {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.productTable th .fa-sort {
+  margin-left: 0.5rem;
+  opacity: 0.5;
+}
+.productTable tbody tr:last-child td {
+  border-bottom: none;
+}
+.productTable tbody tr:hover {
+  background-color: var(--bg-primary);
+}
+.productInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.productImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.productName {
+  font-weight: 600;
+}
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.statusBadge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.statusInStock {
+  color: var(--status-in-stock);
+  background-color: #eaf6ec;
+}
+.statusInStock::before {
+  background-color: var(--status-in-stock);
+}
+.statusLowStock {
+  color: var(--status-low-stock);
+  background-color: #fff4e6;
+}
+.statusLowStock::before {
+  background-color: var(--status-low-stock);
+}
+.statusOutOfStock {
+  color: var(--status-out-of-stock);
+  background-color: #fbe9eb;
+}
+.statusOutOfStock::before {
+  background-color: var(--status-out-of-stock);
+}
+.actionsCell {
+  text-align: right;
+}
+.actionIcon {
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+.actionIcon:hover {
+  color: var(--text-primary);
+  background-color: #e9ecef;
+}
