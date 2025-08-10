@@ -16,7 +16,7 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Admin', 'Product', 'Category', 'Dashboard', 'Inventory'],
+  tagTypes: ['Admin', 'Product', 'Category', 'Dashboard', 'Inventory', 'Order', 'Analytics'],
   endpoints: (builder) => ({
  
     adminLogin: builder.mutation({
@@ -113,6 +113,64 @@ export const apiSlice = createApi({
       query: (id) => `/categories/${id}`,
       providesTags: (result, error, id) => [{ type: 'Category', id }],
     }),
+
+    // Analytics
+    getAnalytics: builder.query({
+      query: ({ startDate, endDate, status = 'completed', interval = 'day' } = {}) => {
+        const params = new URLSearchParams();
+        if (startDate) params.set('startDate', startDate);
+        if (endDate) params.set('endDate', endDate);
+        if (status) params.set('status', status);
+        if (interval) params.set('interval', interval);
+        const qs = params.toString();
+        return `/admin/analytics${qs ? `?${qs}` : ''}`;
+      },
+      providesTags: ['Analytics'],
+    }),
+
+    // sample orders
+    createSampleOrders: builder.mutation({
+      query: () => ({
+        url: '/admin/sample-orders',
+        method: 'POST',
+      }),
+      invalidatesTags: ['Order', 'Analytics', 'Dashboard'],
+    }),
+    // Order endpoints
+    getOrders: builder.query({
+      query: (params = {}) => {
+        const queryString = new URLSearchParams(params).toString();
+        return `/admin/orders${queryString ? `?${queryString}` : ''}`;
+      },
+      providesTags: ['Order'],
+    }),
+
+    getOrderById: builder.query({
+      query: (id) => `/admin/orders/${id}`,
+      providesTags: (result, error, id) => [{ type: 'Order', id }],
+    }),
+
+    updateOrderStatus: builder.mutation({
+      query: ({ id, status }) => ({
+        url: `/admin/orders/${id}/status`,
+        method: 'PUT',
+        body: { status },
+      }),
+      invalidatesTags: (result, error, { id }) => [
+        { type: 'Order', id },
+        'Order',
+        'Dashboard',
+      ],
+    }),
+
+    updateAdminPassword: builder.mutation({
+      query: (passwords) => ({
+        url: '/admin/change-password',
+        method: 'PUT',
+        body: passwords,
+      }),
+      invalidatesTags: ['Admin'],
+    }),
   }),
 });
 
@@ -130,4 +188,10 @@ export const {
   useGetCategoriesQuery,
   useGetCategoryTreeQuery,
   useGetCategoryByIdQuery,
+  useGetAnalyticsQuery,
+  useCreateSampleOrdersMutation,
+  useGetOrdersQuery,
+  useGetOrderByIdQuery,
+  useUpdateOrderStatusMutation,
+  useUpdateAdminPasswordMutation,
 } = apiSlice;
