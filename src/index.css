@@ -13,6 +13,29 @@
   --status-in-stock: #28a745;
   --status-low-stock: #fd7e14;
   --status-out-of-stock: #dc3545;
+
+  
+  --primary-color: #4a90e2;
+  --primary-hover-color: #357abd;
+  --primary-shadow-color: rgba(74, 144, 226, 0.2);
+
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border-color: #dee2e6;
+}
+
+[data-theme='dark'] {
+  --primary-color: #58a6ff;
+  --primary-hover-color: #79b8ff;
+  --primary-shadow-color: rgba(88, 166, 255, 0.2);
+
+  --background-primary: #1c2128;
+  --background-secondary: #22272e;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --border-color: #444c56;
 }
 
 * {
@@ -27,6 +50,9 @@ body {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {

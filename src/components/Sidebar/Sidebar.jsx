@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 
 
-const Sidebar = ({ activeLink, setActiveLink }) => {
-
-  const navItems = [
-    { name: "Dashboard", icon: "fa-solid fa-chart-pie" },
-    { name: "Products", icon: "fa-solid fa-box-archive" },
-    { name: "Categories", icon: "fa-solid fa-tags" },
-    { name: "Orders", icon: "fa-solid fa-receipt" },
-    { name: "Analytics", icon: "fa-solid fa-chart-line" },
-    { name: "Settings", icon: "fa-solid fa-gear" },
-  ];
+const navItems = [
+  { name: "Dashboard", icon: <i className="fas fa-chart-pie"></i>, path: "/dashboard" },
+  { name: "Products", icon: <i className="fas fa-box-archive"></i>, path: "/products" },
+  { name: "Inventory", icon: <i className="fas fa-warehouse"></i>, path: "/inventory" },
+  { name: "Orders", icon: <i className="fas fa-receipt"></i>, path: "/orders" },
+  { name: "Analytics", icon: <i className="fas fa-chart-line"></i>, path: "/analytics" },
+  { name: "Settings", icon: <i className="fas fa-cog"></i>, path: "/settings" },
+];
 
 
+const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.sidebarHeader}>
@@ -26,21 +26,16 @@ const Sidebar = ({ activeLink, setActiveLink }) => {
         <ul className={styles.navList}>
           {navItems.map((item) => (
             <li className={styles.navItem} key={item.name}>
-              <a
-                href="#"
-                className={
-                  activeLink === item.name
-                    ? `${styles.navLink} ${styles.active}`
-                    : styles.navLink
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
-                onClick={e => {
-                  e.preventDefault();
-                  setActiveLink(item.name);
-                }}
+                end
               >
-                <i className={item.icon}></i>
+                {item.icon}
                 <span>{item.name}</span>
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
