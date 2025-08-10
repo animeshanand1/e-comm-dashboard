@@ -1,0 +1,73 @@
+.ordersContainer {
+  padding: 2rem;
+  flex-grow: 1;
+  background-color: var(--bg-primary);
+  overflow-y: auto;
+}
+.ordersCard {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  overflow: hidden;
+}
+.ordersHeader {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+.ordersTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.ordersTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ordersTable th,
+.ordersTable td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+.ordersTable th {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+.ordersTable tbody tr:last-child td {
+  border-bottom: none;
+}
+.ordersTable tbody tr:hover {
+  background-color: var(--bg-primary);
+}
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.statusDelivered {
+  color: var(--status-in-stock);
+  background-color: #eaf6ec;
+}
+.statusShipped {
+  color: var(--status-shipped);
+  background-color: #e7f0fe;
+}
+.statusPending {
+  color: var(--status-low-stock);
+  background-color: #fff4e6;
+}
+.statusCancelled {
+  color: var(--status-out-of-stock);
+  background-color: #fbe9eb;
+}
