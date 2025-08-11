@@ -85,6 +85,14 @@ export const apiSlice = createApi({
       invalidatesTags: ['Product', 'Dashboard', 'Inventory'],
     }),
 
+    getFeaturedProducts: builder.query({
+      query: (params = {}) => {
+        const queryString = new URLSearchParams(params).toString();
+        return `/admin/featured-products${queryString ? `?${queryString}` : ''}`;
+      },
+      providesTags: ['Product'],
+    }),
+
     getInventory: builder.query({
       query: () => '/admin/inventory',
       providesTags: ['Inventory'],
@@ -194,4 +202,5 @@ export const {
   useGetOrderByIdQuery,
   useUpdateOrderStatusMutation,
   useUpdateAdminPasswordMutation,
+  useGetFeaturedProductsQuery,
 } = apiSlice;

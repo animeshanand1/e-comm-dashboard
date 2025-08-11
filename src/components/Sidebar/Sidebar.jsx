@@ -8,7 +8,8 @@ const navItems = [
   { name: "Products", icon: <i className="fas fa-box-archive"></i>, path: "/products" },
   { name: "Inventory", icon: <i className="fas fa-warehouse"></i>, path: "/inventory" },
   { name: "Orders", icon: <i className="fas fa-receipt"></i>, path: "/orders" },
-  { name: "Analytics", icon: <i className="fas fa-chart-line"></i>, path: "/analytics" },
+  { name: "Featured Products", icon: <i className="fas fa-star"></i>, path: "/featured-products" },
+  // { name: "Analytics", icon: <i className="fas fa-chart-line"></i>, path: "/analytics" },
   { name: "Settings", icon: <i className="fas fa-cog"></i>, path: "/settings" },
 ];
 
