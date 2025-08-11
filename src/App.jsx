@@ -4,10 +4,11 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header";
 import ProductList from "./components/ProductList/ProductList";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Analytics from "./components/Analytics/Analytics";
+// import Analytics from "./components/Analytics/Analytics";
 import OrdersPage from "./components/Orders/OrdersPage";
 import Settings from "./components/Settings/Settings";
 import Inventory from "./components/Inventory/Inventory";
+import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
               <Route path="/products" element={<ProductList />} />
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/orders" element={<OrdersPage />} />
-              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/featured-products" element={<FeaturedProducts />} />
+              {/* <Route path="/analytics" element={<Analytics />} /> */}
               <Route path="/settings" element={<Settings />} />
             </Routes>
           </div>
