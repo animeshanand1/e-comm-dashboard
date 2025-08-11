@@ -14,6 +14,7 @@ const initialState = {
   currency: "USD",
   productType: "physical",
   status: "active",
+  featured: false,
   stock: "",
   images: ["", "", "", ""],
   variantColor: "",
@@ -27,12 +28,14 @@ const AddProduct = ({ onSuccess }) => {
 
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     if (name.startsWith("image")) {
       const idx = parseInt(name.replace("image", ""), 10);
       const newImages = [...form.images];
       newImages[idx] = value;
       setForm({ ...form, images: newImages });
+    } else if (type === 'checkbox') {
+      setForm({ ...form, [name]: checked });
     } else {
       setForm({ ...form, [name]: value });
     }
@@ -62,6 +65,7 @@ const AddProduct = ({ onSuccess }) => {
       },
       productType: form.productType,
       status: form.status,
+      featured: form.featured,
       variants: [
         {
           variantId: `${form.sku}-1`,
@@ -133,6 +137,18 @@ const AddProduct = ({ onSuccess }) => {
       <div className={styles.formRow}>
         <input name="variantColor" value={form.variantColor} onChange={handleChange} placeholder="Variant Color (e.g. Red)" />
         <input name="variantSize" value={form.variantSize} onChange={handleChange} placeholder="Variant Size (e.g. M)" />
+        <div className={styles.checkboxGroup}>
+          <label className={styles.checkboxLabel}>
+            <input 
+              type="checkbox" 
+              name="featured" 
+              checked={form.featured} 
+              onChange={handleChange}
+              className={styles.checkbox}
+            />
+            <span>Featured Product</span>
+          </label>
+        </div>
       </div>
       <div className={styles.formRow}>
         <input name="image0" value={form.images[0]} onChange={handleChange} placeholder="Image URL (Front)" required />

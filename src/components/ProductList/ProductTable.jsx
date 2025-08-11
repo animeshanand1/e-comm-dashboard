@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./ProductTable.module.css";
-const ProductTable = ({ products }) => {
+
+const ProductTable = ({ products, onEditProduct, onDeleteProduct }) => {
    
     const getStatusClass = (status) => {
         if (status === 'In Stock') return styles.statusInStock;
@@ -41,8 +42,16 @@ const ProductTable = ({ products }) => {
                                 </span>
                             </td>
                             <td className={styles.actionsCell}>
-                                <i className={`fa-solid fa-pencil ${styles.actionIcon}`} title="Edit"></i>
-                                <i className={`fa-solid fa-trash-can ${styles.actionIcon}`} title="Delete"></i>
+                                <i 
+                                    className={`fa-solid fa-pencil ${styles.actionIcon}`} 
+                                    title="Edit" 
+                                    onClick={() => onEditProduct(product)}
+                                ></i>
+                                <i 
+                                    className={`fa-solid fa-trash-can ${styles.actionIcon}`} 
+                                    title="Delete"
+                                    onClick={() => onDeleteProduct(product)}
+                                ></i>
                             </td>
                         </tr>
                     ))}
