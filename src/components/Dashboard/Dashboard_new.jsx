@@ -26,7 +26,6 @@ const Dashboard = () => {
   }
 
   const summary = dashboardData?.summary || {};
-  const orderStats = summary.orderStats || {};
   
   const dashboardStats = [
     {
@@ -39,43 +38,19 @@ const Dashboard = () => {
       value: summary.orderCount?.toLocaleString() || '0',
       label: "Total Orders",
       icon: "fa-solid fa-receipt",
-      color: "iconBlue",
-    },
-    {
-      value: orderStats.delivered?.toLocaleString() || '0',
-      label: "Delivered Orders",
-      icon: "fa-solid fa-truck",
       color: "iconGreen",
-    },
-    {
-      value: orderStats.cancelled?.toLocaleString() || '0',
-      label: "Cancelled Orders",
-      icon: "fa-solid fa-ban",
-      color: "iconRed",
-    },
-    {
-      value: orderStats.pending?.toLocaleString() || '0',
-      label: "Pending Orders",
-      icon: "fa-solid fa-clock",
-      color: "iconOrange",
-    },
-    {
-      value: orderStats.shipped?.toLocaleString() || '0',
-      label: "Shipped Orders",
-      icon: "fa-solid fa-shipping-fast",
-      color: "iconCyan",
     },
     {
       value: summary.productCount?.toLocaleString() || '0',
       label: "Total Products",
       icon: "fa-solid fa-box-archive",
-      color: "iconTeal",
+      color: "iconOrange",
     },
     {
       value: summary.lowStockProducts?.length || '0',
       label: "Low Stock Items",
-      icon: "fa-solid fa-circle-exclamation",
-      color: "iconYellow",
+      icon: "fa-solid fa-circle-xmark",
+      color: "iconRed",
     },
   ];
 

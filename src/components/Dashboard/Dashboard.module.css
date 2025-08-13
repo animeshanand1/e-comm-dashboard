@@ -67,6 +67,22 @@
   background-color: #fbe9eb;
   color: var(--status-out-of-stock);
 }
+.iconBlue {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+.iconCyan {
+  background-color: #ecfeff;
+  color: #0891b2;
+}
+.iconTeal {
+  background-color: #f0fdfa;
+  color: #0d9488;
+}
+.iconYellow {
+  background-color: #fefce8;
+  color: #ca8a04;
+}
 .statInfo h3 {
   font-size: 1.75rem;
   font-weight: 700;
@@ -77,6 +93,13 @@
   color: var(--text-secondary);
 }
 .mainChartCard,
+.recentActivityCard {
+  background: none; 
+  padding: 0; 
+  border-radius: 0; 
+  box-shadow: none; 
+}
+
 .recentActivityCard {
   background-color: var(--bg-secondary);
   padding: 1.5rem;
@@ -138,13 +161,36 @@
   color: var(--text-secondary);
 }
 
+.loadingText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.errorText {
+  font-size: 0.85rem;
+  color: var(--status-out-of-stock);
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+}
+
 /* Responsive Grid Adjustments */
 @media (min-width: 640px) {
   .statCard {
     grid-column: span 6;
   }
 }
+@media (min-width: 768px) {
+  .statCard {
+    grid-column: span 4;
+  }
+}
 @media (min-width: 1024px) {
+  .statCard {
+    grid-column: span 3;
+  }
   .mainChartCard {
     grid-column: span 8;
   }
@@ -155,5 +201,10 @@
 @media (min-width: 1280px) {
   .statCard {
     grid-column: span 3;
+  }
+}
+@media (min-width: 1536px) {
+  .statCard {
+    grid-column: span 2;
   }
 }

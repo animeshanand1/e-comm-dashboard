@@ -32,6 +32,16 @@ export const apiSlice = createApi({
       query: () => '/admin/dashboard',
       providesTags: ['Dashboard'],
     }),
+
+    getRecentActivity: builder.query({
+      query: () => '/admin/recent-activity',
+      providesTags: ['Dashboard', 'Order', 'Product'],
+    }),
+
+    getOrdersAnalytics: builder.query({
+      query: (period = 'week') => `/admin/orders-analytics?period=${period}`,
+      providesTags: ['Order', 'Analytics'],
+    }),
     getProducts: builder.query({
       query: (params = {}) => {
         const queryString = new URLSearchParams(params).toString();
@@ -185,6 +195,8 @@ export const apiSlice = createApi({
 export const {
   useAdminLoginMutation,
   useGetDashboardQuery,
+  useGetRecentActivityQuery,
+  useGetOrdersAnalyticsQuery,
   useGetProductsQuery,
   useGetProductByIdQuery,
   useCreateProductMutation,
